@@ -25,11 +25,16 @@ public class GoogleSheets : MonoBehaviour {
 
 
 	public string GetSheetText(string rowName) {
+		if(rowName == string.Empty || rowName == null){
+//			Debug.Log("RowName is empty");
+			return "error";
+		}
 		if(sheet == null) GetSheet();
 		int rowNumber = FindRow(rowName);
 		if(rowNumber > 0)
 			return GetCell(rowNumber, languageNumber);
 		else
+			
 			Debug.Log("Error: Cell Not Found (" + language + "(" + languageNumber + ") : " + rowName + "(" + rowNumber + "))");
 			return "error";
 	}
