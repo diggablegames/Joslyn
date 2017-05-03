@@ -20,14 +20,16 @@ public class LayoutScreenController : MonoBehaviour {
 	[SerializeField] DestinationButton CloseButtonObject;
 	[SerializeField] GameObject CloseButtonDestination;
 
-	void Awake () {
+	void Start () {
+		//add text into header from google sheets doc
 		if(HeaderRowName != null && HeaderRowName != string.Empty){
 			if(HeaderObject != null)
-				HeaderObject.GetComponent<SheetToText>().RowName = HeaderRowName;
+				GoSheetsToText(HeaderObject, HeaderRowName);
 		}
+		//add text into body from google sheets doc
 		if(BodyRowName != null && BodyRowName != string.Empty){
 			if(BodyObject != null)
-				BodyObject.GetComponent<SheetToText>().RowName = BodyRowName;
+				GoSheetsToText(BodyObject, BodyRowName);
 		}
 
 		foreach(IconButton iconButton in IconButtons){
@@ -41,6 +43,19 @@ public class LayoutScreenController : MonoBehaviour {
 
 		if(CloseButtonObject != null){
 			CloseButtonObject.ButtonDestination = CloseButtonDestination;
+		}
+	}
+
+	void GoSheetsToText(GameObject iGameObject, string iRowName){
+		if(GameManager.googleSheets.GoogleSheetsActive){
+			string newText = GameManager.googleSheets.GetSheetText(iRowName);
+
+			Text TextData = iGameObject.GetComponent<Text>();
+			if(newText != "error" && TextData != null)
+				TextData.text = newText;
+			TextWithEvents twe = iGameObject.GetComponent<TextWithEvents>();
+			if(twe != null)
+				twe.Restart(newText);
 		}
 	}
 }
