@@ -16,7 +16,9 @@ public class DestinationButton : MonoBehaviour {
 
 	public void OnPointerUp(PointerEventData data)
 	{
-		Debug.Log("OnPointerUp: " + ButtonDestination.name);
-		GameManager.panelController.enablePanel(ButtonDestination);
+		if(ButtonDestination != null){
+			Debug.Log("OnPointerUp: " + ButtonDestination.name);
+			GameManager.panelController.enablePanel(ButtonDestination);
+		}
 	}
 }
