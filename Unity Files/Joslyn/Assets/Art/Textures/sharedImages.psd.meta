@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4306eb6b6afa04caf933184d53e1c202
-timeCreated: 1493248744
+timeCreated: 1494028731
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -25,6 +25,11 @@ TextureImporter:
     21300036: Fire
     21300038: Magnify
     21300040: CircleFade
+    21300042: StartButton
+    21300044: Up_Arrow
+    21300046: MenuBox
+    21300048: DownArrow
+    21300050: HotSpot
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -58,7 +63,6 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 97
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -328,6 +332,71 @@ TextureImporter:
         y: 1792
         width: 256
         height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: StartButton
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Up_Arrow
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MenuBox
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 64, y: 64, z: 64, w: 64}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DownArrow
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HotSpot
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
