@@ -15,6 +15,9 @@ public class LayoutScreenController : MonoBehaviour {
 	[SerializeField] string HeaderRowName;
 	[SerializeField] GameObject BodyObject;
 	[SerializeField] string BodyRowName;
+	[SerializeField] RectTransform BodyBGRectT;
+	[SerializeField] float BodyBGPadding;
+	Vector2 rectSize = new Vector2(0,0);
 
 	ScrollRect bodyScrollRect;
 	[SerializeField] GameObject BodyUpArrow;
@@ -41,6 +44,10 @@ public class LayoutScreenController : MonoBehaviour {
 		if(bodyScrollRect.viewport.rect.height/bodyScrollRect.content.rect.height > 1){
 			BodyUpArrow.SetActive(false);
 			BodyDnArrow.SetActive(false);
+			RectTransform rt = BodyObject.GetComponent<RectTransform>();
+			rectSize.x = BodyBGRectT.sizeDelta.x;
+			rectSize.y = rt.sizeDelta.y + BodyBGPadding;
+			BodyBGRectT.sizeDelta = rectSize;
 		}
 
 		foreach(IconButton iconButton in IconButtons){
@@ -77,6 +84,10 @@ public class LayoutScreenController : MonoBehaviour {
 		if(bodyScrollRect.viewport.rect.height/bodyScrollRect.content.rect.height > 1){
 			BodyUpArrow.SetActive(false);
 			BodyDnArrow.SetActive(false);
+			RectTransform rt = BodyObject.GetComponent<RectTransform>();
+			rectSize.x = BodyBGRectT.sizeDelta.x;
+			rectSize.y = rt.sizeDelta.y + BodyBGPadding;
+			BodyBGRectT.sizeDelta = rectSize;
 		}
 	}
 

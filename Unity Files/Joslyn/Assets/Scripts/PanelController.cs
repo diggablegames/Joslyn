@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class PanelController : MonoBehaviour {
+	[SerializeField] string VersionNumber;
 	[SerializeField] bool buildPanelListDynamically;
 	[SerializeField] GameObject dynamicDirectory;
 	[SerializeField] GameObject startPanel;
@@ -84,7 +85,7 @@ public class PanelController : MonoBehaviour {
 	}
 
 	public void getVersionNumber(Text versionField){
-		versionField.text = "version: " + Application.version;
+		versionField.text = "version: " + VersionNumber;
 	}
 
 	public Sprite getOutlineSprite(string spriteName){
