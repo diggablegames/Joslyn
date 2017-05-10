@@ -23,6 +23,10 @@ public class OverlayTextController : MonoBehaviour {
 	[Header("Background Menu Text")]
 	[SerializeField] MenuPanel[] menuPanels;
 
+	ScrollRect bodyScrollRect;
+	[SerializeField] GameObject BodyUpArrow;
+	[SerializeField] GameObject BodyDnArrow;
+
 	// Use this for initialization
 	void Awake () {
 		if(HeaderRowName != null && HeaderRowName != string.Empty){
@@ -43,5 +47,37 @@ public class OverlayTextController : MonoBehaviour {
 		if(CloseButtonObject != null){
 			CloseButtonObject.ButtonDestination = CloseButtonDestination;
 		}
+	}
+
+	void Start(){
+		bodyScrollRect = gameObject.GetComponentInChildren<ScrollRect>();
+		if(bodyScrollRect.viewport.rect.height/bodyScrollRect.content.rect.height > 1){
+			BodyUpArrow.SetActive(false);
+			BodyDnArrow.SetActive(false);
+		}
+	}
+	void OnEnable(){
+		if(bodyScrollRect == null)
+			bodyScrollRect = gameObject.GetComponentInChildren<ScrollRect>();
+		bodyScrollRect.verticalNormalizedPosition = 1; //reset scrolling panel back to top
+	}
+
+	void Update(){
+		if(bodyScrollRect == null)
+			bodyScrollRect = gameObject.GetComponentInChildren<ScrollRect>();
+
+		if(bodyScrollRect.viewport.rect.height/bodyScrollRect.content.rect.height > 1){
+			BodyUpArrow.SetActive(false);
+			BodyDnArrow.SetActive(false);
+		}
+	}
+
+	public void scrollBodyUp(){
+		if(bodyScrollRect.verticalNormalizedPosition<=1)
+			bodyScrollRect.verticalNormalizedPosition += bodyScrollRect.viewport.rect.height/bodyScrollRect.content.rect.height;
+	}
+	public void scrollBodyDown(){
+		if(bodyScrollRect.verticalNormalizedPosition >0)
+			bodyScrollRect.verticalNormalizedPosition -= bodyScrollRect.viewport.rect.height/bodyScrollRect.content.rect.height;
 	}
 }

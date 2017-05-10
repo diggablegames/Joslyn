@@ -4,6 +4,7 @@ using System.Collections;
 
 [System.Serializable]
 public class IconButton{
+	public bool showHilight;
 	public DestinationButton iconObject;
 	public Sprite iconImage;
 	public GameObject iconDestination;
@@ -14,6 +15,10 @@ public class LayoutScreenController : MonoBehaviour {
 	[SerializeField] string HeaderRowName;
 	[SerializeField] GameObject BodyObject;
 	[SerializeField] string BodyRowName;
+
+	ScrollRect bodyScrollRect;
+	[SerializeField] GameObject BodyUpArrow;
+	[SerializeField] GameObject BodyDnArrow;
 
 	[SerializeField] IconButton[] IconButtons;
 
@@ -31,12 +36,25 @@ public class LayoutScreenController : MonoBehaviour {
 			if(BodyObject != null)
 				GoSheetsToText(BodyObject, BodyRowName);
 		}
+		
+		bodyScrollRect = gameObject.GetComponentInChildren<ScrollRect>();
+		if(bodyScrollRect.viewport.rect.height/bodyScrollRect.content.rect.height > 1){
+			BodyUpArrow.SetActive(false);
+			BodyDnArrow.SetActive(false);
+		}
 
 		foreach(IconButton iconButton in IconButtons){
 			if(iconButton.iconDestination == null){
-				iconButton.iconObject.gameObject.SetActive(false);
+				if(iconButton.showHilight){
+//					iconButton.iconObject.gameObject.GetComponent<Outline>().enabled = true;
+					iconButton.iconObject.gameObject.SetActive(true);
+				}else{
+//					iconButton.iconObject.gameObject.GetComponent<Outline>().enabled = false;
+					iconButton.iconObject.gameObject.SetActive(false);
+				}
 			}else{
 				iconButton.iconObject.gameObject.SetActive(true);
+//				iconButton.iconObject.gameObject.GetComponent<Outline>().enabled = false;
 				iconButton.iconObject.ButtonDestination = iconButton.iconDestination;
 			}
 		}
@@ -44,6 +62,31 @@ public class LayoutScreenController : MonoBehaviour {
 		if(CloseButtonObject != null){
 			CloseButtonObject.ButtonDestination = CloseButtonDestination;
 		}
+	}
+
+	void OnEnable(){
+		if(bodyScrollRect == null)
+			bodyScrollRect = gameObject.GetComponentInChildren<ScrollRect>();
+		bodyScrollRect.verticalNormalizedPosition = 1; //reset scrolling panel back to top
+	}
+
+	void Update(){
+		if(bodyScrollRect == null)
+			bodyScrollRect = gameObject.GetComponentInChildren<ScrollRect>();
+			
+		if(bodyScrollRect.viewport.rect.height/bodyScrollRect.content.rect.height > 1){
+			BodyUpArrow.SetActive(false);
+			BodyDnArrow.SetActive(false);
+		}
+	}
+
+	public void scrollBodyUp(){
+		if(bodyScrollRect.verticalNormalizedPosition<=1)
+			bodyScrollRect.verticalNormalizedPosition += bodyScrollRect.viewport.rect.height/bodyScrollRect.content.rect.height;
+	}
+	public void scrollBodyDown(){
+		if(bodyScrollRect.verticalNormalizedPosition >0)
+			bodyScrollRect.verticalNormalizedPosition -= bodyScrollRect.viewport.rect.height/bodyScrollRect.content.rect.height;
 	}
 
 	void GoSheetsToText(GameObject iGameObject, string iRowName){

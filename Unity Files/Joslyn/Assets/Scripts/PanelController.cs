@@ -7,14 +7,25 @@ public class PanelController : MonoBehaviour {
 	[SerializeField] GameObject dynamicDirectory;
 	[SerializeField] GameObject startPanel;
 	[SerializeField] GameObject[] PanelList;
+	[SerializeField] float delayTimerInMinutes=3;
+	[SerializeField] Sprite[] alternateSprites;
+
+	float panelTimer;
 
 	void Start(){
 		int goChildCount = dynamicDirectory.transform.childCount;
 		PanelList = new GameObject[goChildCount];
+		panelTimer = Time.time + (delayTimerInMinutes*60);
 		for (int i=0;i<goChildCount;i++){
 			PanelList[i] = dynamicDirectory.transform.GetChild(i).gameObject;
 		}
 		enablePanel(startPanel);
+	}
+
+	void Update(){
+		if(Time.time > panelTimer){
+			enablePanel(startPanel);
+		}
 	}
 
 
@@ -42,6 +53,7 @@ public class PanelController : MonoBehaviour {
 	}
 
 	public void enablePanel(int panelId){
+		panelTimer = Time.time + (delayTimerInMinutes*60);
 		for(int i=0;i<PanelList.Length;i++){
 			if(i==panelId)
 				PanelList[panelId].SetActive(true);
@@ -67,6 +79,20 @@ public class PanelController : MonoBehaviour {
 	}
 
 	public void enablePopup(int panelId){
+		panelTimer = Time.time + (delayTimerInMinutes*60);
 		PanelList[panelId].SetActive(true);
+	}
+
+	public void getVersionNumber(Text versionField){
+		versionField.text = "version: " + Application.version;
+	}
+
+	public Sprite getOutlineSprite(string spriteName){
+		foreach(Sprite outlineSprite in alternateSprites){
+			if(outlineSprite.name == spriteName){
+				return outlineSprite;
+			}
+		}
+		return null;
 	}
 }

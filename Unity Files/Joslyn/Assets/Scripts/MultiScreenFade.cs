@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class MultiScreenFade : MonoBehaviour {
 	[SerializeField] bool checkAllChildren;
 	[SerializeField] Image[] screensToFade;
+	[SerializeField] Image[] buttonsToFade;
 	[SerializeField] float transitionTime;
 	[SerializeField] float holdTime = 6;
 
@@ -44,7 +45,9 @@ public class MultiScreenFade : MonoBehaviour {
 
 	void FadeOut() {
 		activeScreen = screensToFade[screenNumber];
-		activeScreen.CrossFadeAlpha(0, transitionTime, false);
+		foreach(Image img in activeScreen.gameObject.GetComponentsInChildren<Image>()){
+			img.CrossFadeAlpha(0, transitionTime, false);
+		}
 	}
 
 	void FadeInAll() {
@@ -60,6 +63,8 @@ public class MultiScreenFade : MonoBehaviour {
 	void FadeInScreen() {
 		myCounter--;
 		Image screen = screensToFade[myCounter];
-		screen.CrossFadeAlpha(1, transitionTime, false);
+		foreach(Image img in screen.GetComponentsInChildren<Image>()){
+			img.CrossFadeAlpha(1, transitionTime, false);
+		}
 	}
 }

@@ -37,10 +37,15 @@ public class ImportGoSheetsText : EditorWindow{
 			EditorSceneManager.MarkSceneDirty(obj.scene);
 			Text textComponent = obj.GetComponent<Text>();
 			if(textComponent){
-				textComponent.text = GetSheetText(obj.name);
+				string goText = GetSheetText(obj.name);
+				if(goText == "error" || goText == string.Empty){
+					textComponent.text = "";
+				}else{
+					textComponent.text = goText;
+				}
 				UnityEditor.EditorUtility.SetDirty(textComponent);
 
-				Debug.Log("Found Text Component: " + obj.name);
+//				Debug.Log("Found Text Component: " + obj.name);
 			}
 		}
 	}

@@ -7,6 +7,8 @@ public class MenuController : MonoBehaviour {
 
 	[SerializeField] DestinationButton CloseButtonObject;
 	[SerializeField] GameObject CloseButtonDestination;
+	[SerializeField] DestinationButton HomeButtonObject;
+	[SerializeField] GameObject HomeButtonDestination;
 
 	void Awake () {
 		foreach(MenuPanel menuItem in menuPanels){
@@ -16,6 +18,10 @@ public class MenuController : MonoBehaviour {
 
 		if(CloseButtonObject != null){
 			CloseButtonObject.ButtonDestination = CloseButtonDestination;
+		}
+
+		if(HomeButtonObject != null){
+			HomeButtonObject.ButtonDestination = HomeButtonDestination;
 		}
 	}
 }
