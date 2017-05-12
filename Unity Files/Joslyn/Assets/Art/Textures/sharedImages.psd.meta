@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4306eb6b6afa04caf933184d53e1c202
-timeCreated: 1494377338
+timeCreated: 1494544716
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -47,6 +47,7 @@ TextureImporter:
     21300080: a_head_u
     21300082: a_lamb_u
     21300084: a_cloth_u
+    21300086: Credits
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -633,6 +634,19 @@ TextureImporter:
         serializedVersion: 2
         x: 1792
         y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Credits
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1536
         width: 256
         height: 256
       alignment: 0
