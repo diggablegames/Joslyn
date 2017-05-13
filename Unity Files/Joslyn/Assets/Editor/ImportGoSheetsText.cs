@@ -17,7 +17,20 @@ public class ImportGoSheetsText : EditorWindow{
 
 	[MenuItem("Tools/Build GoSheets")]
 	static void BuildGoSheets(){
-		sheet = GoSheets.GetGoogleSheetNative("https://docs.google.com/spreadsheets/d/1x4joknHAdlCSH_G1ADuBNX9450I-avkazXRfbHPsvx4/edit?usp=sharing", "0");
+		//
+		string sceneName = EditorSceneManager.GetActiveScene().name;
+		 
+		if(sceneName == "Gossaert"){
+			url = "https://docs.google.com/spreadsheets/d/1x4joknHAdlCSH_G1ADuBNX9450I-avkazXRfbHPsvx4/edit?usp=sharing";
+		}else if(sceneName == "Rembrandt"){
+			url = "https://docs.google.com/spreadsheets/d/1p-DTwEMEVBMMzQoNy79PZ-uN_pfBat_GpTQdkJbKJII/edit?usp=sharing";
+		}else if(sceneName == "Degas"){
+			url = "https://docs.google.com/spreadsheets/d/1F-90pzLcEtH2osX1mXdyfwxnoIwUViLJH1VzgO0eSx0/edit?usp=sharing";
+		}else{
+			Debug.LogError("Scene Not Found");
+			return;
+		}
+		sheet = GoSheets.GetGoogleSheetNative(url, "0");
 //		List<string> foundFields = new List<string>();
 		GameObject[] selectedObjects = Selection.gameObjects;
 		foreach(GameObject go in selectedObjects){

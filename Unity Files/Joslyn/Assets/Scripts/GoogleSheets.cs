@@ -9,13 +9,24 @@ public class GoogleSheets : MonoBehaviour {
 	[SerializeField] Languages language = Languages.ENGLISH;
 	int languageNumber;
 	string[][] sheet;
+	[SerializeField] string gossaertURL;
+	[SerializeField] string rembrandtURL;
+	[SerializeField] string degasURL;
 
 	[SerializeField] string url;
 	[SerializeField] string gId = "0";
 
 	void OnEnable(){
-		if(GoogleSheetsActive)
+		if(GoogleSheetsActive){
+			if(GameManager.panelController.sceneName == PanelController.sceneNames.Gossaert){
+				url = gossaertURL;
+			}else if(GameManager.panelController.sceneName == PanelController.sceneNames.Rembrandt){
+				url = rembrandtURL;
+			}else if(GameManager.panelController.sceneName == PanelController.sceneNames.Degas){
+				url = degasURL;
+			}
 			GetSheet();
+		}
 	}
 
 	void GetSheet(){

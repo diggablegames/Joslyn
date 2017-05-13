@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class PanelController : MonoBehaviour {
+	public enum sceneNames{Gossaert, Rembrandt, Degas}
+	public sceneNames sceneName;
 	[SerializeField] string VersionNumber;
 	[SerializeField] bool buildPanelListDynamically;
 	[SerializeField] GameObject dynamicDirectory;
