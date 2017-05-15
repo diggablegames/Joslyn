@@ -16,7 +16,7 @@ public class GoogleSheets : MonoBehaviour {
 	[SerializeField] string url;
 	[SerializeField] string gId = "0";
 
-	void OnEnable(){
+	void Awake(){
 		if(GoogleSheetsActive){
 			if(GameManager.panelController.sceneName == PanelController.sceneNames.Gossaert){
 				url = gossaertURL;
@@ -42,12 +42,12 @@ public class GoogleSheets : MonoBehaviour {
 		}
 		if(sheet == null) GetSheet();
 		int rowNumber = FindRow(rowName);
-		if(rowNumber > 0)
+		if(rowNumber > 0){
 			return GetCell(rowNumber, languageNumber);
-		else
-			
+		}else{
 			Debug.Log("Error: Cell Not Found (" + language + "(" + languageNumber + ") : " + rowName + "(" + rowNumber + "))");
 			return "error";
+		}
 	}
 
 	public void ChangeLanguage(Languages lang){

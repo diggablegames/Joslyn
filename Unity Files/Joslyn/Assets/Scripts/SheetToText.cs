@@ -5,7 +5,7 @@ using System.Collections;
 public class SheetToText : MonoBehaviour {
 	public string RowName;
 
-	void Start () {
+	void Start() {
 		if(GameManager.googleSheets.GoogleSheetsActive){
 			string newText = GameManager.googleSheets.GetSheetText(RowName);
 			Text TextData = gameObject.GetComponent<Text>();
