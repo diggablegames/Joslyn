@@ -67,7 +67,7 @@ public class ImagePopupController : MonoBehaviour {
 
 
 	void GoSheetsToText(GameObject iGameObject, string iRowName){
-		if(GameManager.googleSheets.GoogleSheetsActive){
+		if(GameManager.googleSheets.GoogleSheetsActive && Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork){
 			string newText = GameManager.googleSheets.GetSheetText(iRowName);
 
 			Text TextData = iGameObject.GetComponent<Text>();

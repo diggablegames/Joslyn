@@ -17,7 +17,7 @@ public class GoogleSheets : MonoBehaviour {
 	[SerializeField] string gId = "0";
 
 	void Awake(){
-		if(GoogleSheetsActive){
+		if(GoogleSheetsActive && Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork){
 			if(GameManager.panelController.sceneName == PanelController.sceneNames.Gossaert){
 				url = gossaertURL;
 			}else if(GameManager.panelController.sceneName == PanelController.sceneNames.Rembrandt){

@@ -6,7 +6,7 @@ public class SheetToText : MonoBehaviour {
 	public string RowName;
 
 	void Start() {
-		if(GameManager.googleSheets.GoogleSheetsActive){
+		if(GameManager.googleSheets.GoogleSheetsActive && Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork){
 			string newText = GameManager.googleSheets.GetSheetText(RowName);
 			Text TextData = gameObject.GetComponent<Text>();
 			if(newText != "error" && TextData != null)
