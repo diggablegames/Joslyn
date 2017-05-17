@@ -5,7 +5,7 @@ using System.Collections;
 public class PanelController : MonoBehaviour {
 	public enum sceneNames{Gossaert, Rembrandt, Degas}
 	public sceneNames sceneName;
-	[SerializeField] string VersionNumber;
+	string VersionNumber;
 	[SerializeField] bool buildPanelListDynamically;
 	[SerializeField] GameObject dynamicDirectory;
 	[SerializeField] GameObject startPanel;
@@ -19,6 +19,9 @@ public class PanelController : MonoBehaviour {
 		int goChildCount = dynamicDirectory.transform.childCount;
 		PanelList = new GameObject[goChildCount];
 		panelTimer = Time.time + (delayTimerInMinutes*60);
+
+		//System.IO.StreamReader file = new System.IO.StreamReader(Application.dataPath + "/Resources/version.txt");
+		VersionNumber = "version: .008a";// file.ReadLine();
 		for (int i=0;i<goChildCount;i++){
 			PanelList[i] = dynamicDirectory.transform.GetChild(i).gameObject;
 		}
@@ -87,7 +90,7 @@ public class PanelController : MonoBehaviour {
 	}
 
 	public void getVersionNumber(Text versionField){
-		versionField.text = "version: " + VersionNumber;
+		versionField.text = VersionNumber;
 	}
 
 	public Sprite getOutlineSprite(string spriteName){
