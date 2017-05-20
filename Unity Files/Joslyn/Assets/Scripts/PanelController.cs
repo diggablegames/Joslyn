@@ -21,7 +21,7 @@ public class PanelController : MonoBehaviour {
 		panelTimer = Time.time + (delayTimerInMinutes*60);
 
 		//System.IO.StreamReader file = new System.IO.StreamReader(Application.dataPath + "/Resources/version.txt");
-		VersionNumber = "version: .008a";// file.ReadLine();
+		VersionNumber = "version: .011a";// file.ReadLine();
 		for (int i=0;i<goChildCount;i++){
 			PanelList[i] = dynamicDirectory.transform.GetChild(i).gameObject;
 		}

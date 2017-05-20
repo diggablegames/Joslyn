@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c85baada9682b48cf870761a134f7f1d
-timeCreated: 1494955200
+timeCreated: 1495257561
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -58,6 +58,10 @@ TextureImporter:
     21300102: ballet5_outline
     21300104: d_costume2
     21300106: d_costume2_outline
+    21300108: Hendrick
+    21300110: Hendrick_outline
+    21300112: ballet6
+    21300114: ballet6_outline
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -799,6 +803,58 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hendrick
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Hendrick_outline
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ballet6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ballet6_outline
+      rect:
+        serializedVersion: 2
+        x: 1536
         y: 0
         width: 256
         height: 256

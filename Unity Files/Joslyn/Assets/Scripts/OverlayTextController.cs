@@ -24,8 +24,8 @@ public class OverlayTextController : MonoBehaviour {
 	[SerializeField] MenuPanel[] menuPanels;
 
 	ScrollRect bodyScrollRect;
-	[SerializeField] GameObject BodyUpArrow;
-	[SerializeField] GameObject BodyDnArrow;
+//	[SerializeField] GameObject BodyUpArrow;
+//	[SerializeField] GameObject BodyDnArrow;
 
 	// Use this for initialization
 	void Awake () {
@@ -51,10 +51,10 @@ public class OverlayTextController : MonoBehaviour {
 
 	void Start(){
 		bodyScrollRect = gameObject.GetComponentInChildren<ScrollRect>();
-		if(bodyScrollRect.viewport.rect.height/bodyScrollRect.content.rect.height > 1){
-			BodyUpArrow.SetActive(false);
-			BodyDnArrow.SetActive(false);
-		}
+//		if(bodyScrollRect.viewport.rect.height/bodyScrollRect.content.rect.height > 1){
+//			BodyUpArrow.SetActive(false);
+//			BodyDnArrow.SetActive(false);
+//		}
 	}
 	void OnEnable(){
 		if(bodyScrollRect == null)
@@ -66,10 +66,10 @@ public class OverlayTextController : MonoBehaviour {
 		if(bodyScrollRect == null)
 			bodyScrollRect = gameObject.GetComponentInChildren<ScrollRect>();
 
-		if(bodyScrollRect.viewport.rect.height/bodyScrollRect.content.rect.height > 1){
-			BodyUpArrow.SetActive(false);
-			BodyDnArrow.SetActive(false);
-		}
+//		if(bodyScrollRect.viewport.rect.height/bodyScrollRect.content.rect.height > 1){
+//			BodyUpArrow.SetActive(false);
+//			BodyDnArrow.SetActive(false);
+//		}
 	}
 
 	public void scrollBodyUp(){

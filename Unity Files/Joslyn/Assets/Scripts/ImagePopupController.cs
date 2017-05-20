@@ -13,8 +13,8 @@ public class ImagePopupController : MonoBehaviour {
 	Vector2 rectSize = new Vector2(0,0);
 
 	ScrollRect bodyScrollRect;
-	[SerializeField] GameObject BodyUpArrow;
-	[SerializeField] GameObject BodyDnArrow;
+//	[SerializeField] GameObject BodyUpArrow;
+//	[SerializeField] GameObject BodyDnArrow;
 
 	void Start(){
 		//add text into header from google sheets doc
@@ -26,9 +26,9 @@ public class ImagePopupController : MonoBehaviour {
 		if(imageDestination != null)
 			imageDestination.sprite = displayImage;
 		bodyScrollRect = gameObject.GetComponentInChildren<ScrollRect>();
+//		BodyUpArrow.SetActive(false);
+//		BodyDnArrow.SetActive(false);
 		if(bodyScrollRect.viewport.rect.height/bodyScrollRect.content.rect.height > 1){
-			BodyUpArrow.SetActive(false);
-			BodyDnArrow.SetActive(false);
 			RectTransform rt = BodyObject.GetComponent<RectTransform>();
 			rectSize.x = BodyBGRectT.sizeDelta.x;
 			rectSize.y = rt.sizeDelta.y + BodyBGPadding;
@@ -47,8 +47,8 @@ public class ImagePopupController : MonoBehaviour {
 			bodyScrollRect = gameObject.GetComponentInChildren<ScrollRect>();
 
 		if(bodyScrollRect.viewport.rect.height/bodyScrollRect.content.rect.height > 1){
-			BodyUpArrow.SetActive(false);
-			BodyDnArrow.SetActive(false);
+//			BodyUpArrow.SetActive(false);
+//			BodyDnArrow.SetActive(false);
 			RectTransform rt = BodyObject.GetComponent<RectTransform>();
 			rectSize.x = BodyBGRectT.sizeDelta.x;
 			rectSize.y = rt.sizeDelta.y + BodyBGPadding;

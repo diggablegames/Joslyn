@@ -20,8 +20,8 @@ public class LayoutScreenController : MonoBehaviour {
 	Vector2 rectSize = new Vector2(0,0);
 
 	ScrollRect bodyScrollRect;
-	[SerializeField] GameObject BodyUpArrow;
-	[SerializeField] GameObject BodyDnArrow;
+//	[SerializeField] GameObject BodyUpArrow;
+//	[SerializeField] GameObject BodyDnArrow;
 
 	[SerializeField] IconButton[] IconButtons;
 
@@ -41,9 +41,9 @@ public class LayoutScreenController : MonoBehaviour {
 		}
 		
 		bodyScrollRect = gameObject.GetComponentInChildren<ScrollRect>();
+//		BodyUpArrow.SetActive(false);
+//		BodyDnArrow.SetActive(false);
 		if(bodyScrollRect.viewport.rect.height/bodyScrollRect.content.rect.height > 1){
-			BodyUpArrow.SetActive(false);
-			BodyDnArrow.SetActive(false);
 			RectTransform rt = BodyObject.GetComponent<RectTransform>();
 			rectSize.x = BodyBGRectT.sizeDelta.x;
 			rectSize.y = rt.sizeDelta.y + BodyBGPadding;
@@ -82,8 +82,8 @@ public class LayoutScreenController : MonoBehaviour {
 			bodyScrollRect = gameObject.GetComponentInChildren<ScrollRect>();
 			
 		if(bodyScrollRect.viewport.rect.height/bodyScrollRect.content.rect.height > 1){
-			BodyUpArrow.SetActive(false);
-			BodyDnArrow.SetActive(false);
+//			BodyUpArrow.SetActive(false);
+//			BodyDnArrow.SetActive(false);
 			RectTransform rt = BodyObject.GetComponent<RectTransform>();
 			rectSize.x = BodyBGRectT.sizeDelta.x;
 			rectSize.y = rt.sizeDelta.y + BodyBGPadding;
