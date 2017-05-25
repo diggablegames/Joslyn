@@ -82,6 +82,9 @@ public class ImportGoSheetsText : EditorWindow{
 			//			Debug.Log("RowName is empty");
 			return "error";
 		}
+		if(rowName == "VersionField")
+			return string.Empty;
+		
 		if(sheet == null) sheet = GoSheets.GetGoogleSheetNative("https://docs.google.com/spreadsheets/d/1x4joknHAdlCSH_G1ADuBNX9450I-avkazXRfbHPsvx4/edit?usp=sharing", "0");
 
 		int rowNumber = FindRow(rowName);
